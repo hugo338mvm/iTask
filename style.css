@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+h1 {
+    text-align: center;
+    color: #f0f0f0;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.formulario input,
+.formulario textarea {
+    padding: 8px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #e0e0e0;
+}
+
+.formulario input::placeholder,
+.formulario textarea::placeholder {
+    color: #888;
+}
+
+.formulario button {
+    padding: 10px;
+    background-color: #001f3f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.formulario button:hover {
+    background-color: #004181;
+}
+
+.tarefa {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.tarefa.concluida {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.tarefa small {
+    display: block;
+    color: #999;
+    margin-top: 5px;
+}
