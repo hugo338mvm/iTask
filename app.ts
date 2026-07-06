@@ -42,3 +42,27 @@ class Tarefa {
         return card;
     }
 }
+const tarefas: Tarefa[] = [];
+
+const inputTitulo = document.getElementById('input-titulo') as HTMLInputElement;
+const inputDescricao = document.getElementById('input-descricao') as HTMLTextAreaElement;
+const btnAdicionar = document.getElementById('btn-adicionar') as HTMLButtonElement;
+const listaTarefas = document.getElementById('lista-tarefas') as HTMLDivElement;
+
+btnAdicionar.addEventListener('click', () => {
+    const titulo = inputTitulo.value.trim();
+    const descricao = inputDescricao.value.trim();
+
+    if (titulo === '') {
+        alert('O título da tarefa é obrigatório!');
+        return;
+    }
+
+    const novaTarefa = new Tarefa(titulo, descricao);
+    tarefas.push(novaTarefa);
+
+    listaTarefas.appendChild(novaTarefa.renderizar());
+
+    inputTitulo.value = '';
+    inputDescricao.value = '';
+});
