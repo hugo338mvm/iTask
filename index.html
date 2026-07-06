@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iTask Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>iTask Manager</h1>
+
+        <div class="formulario">
+            <input type="text" id="input-titulo" placeholder="Título da tarefa">
+            <textarea id="input-descricao" placeholder="Descrição (opcional)"></textarea>
+            <button id="btn-adicionar">Adicionar</button>
+        </div>
+
+        <div id="lista-tarefas">
+            <!-- As tarefas serão inseridas aqui dinamicamente via TypeScript -->
+        </div>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
