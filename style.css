@@ -65,11 +65,15 @@ h1 {
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 6px;
+    transition: opacity 0.6s ease;
 }
 
 .tarefa.concluida {
+    opacity: 0.6;
+}
+
+.tarefa.concluida .titulo-tarefa {
     text-decoration: line-through;
-    opacity: 0.5;
 }
 
 .tarefa small {

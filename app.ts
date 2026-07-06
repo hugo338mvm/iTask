@@ -2,12 +2,14 @@ class Tarefa {
     titulo: string;
     descricao: string;
     dataCriacao: Date;
+    dataConclusao: Date | null;
     concluida: boolean;
 
     constructor(titulo: string, descricao: string) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataCriacao = new Date();
+        this.dataConclusao = null;
         this.concluida = false;
     }
 
@@ -19,17 +21,31 @@ class Tarefa {
         checkbox.type = 'checkbox';
 
         const titulo = document.createElement('h3');
+        titulo.classList.add('titulo-tarefa');
         titulo.textContent = this.titulo;
 
         const descricao = document.createElement('p');
         descricao.textContent = this.descricao;
 
-        const data = document.createElement('small');
-        data.textContent = this.dataCriacao.toLocaleString('pt-BR');
+        const dataCriacao = document.createElement('small');
+        dataCriacao.textContent = `Criada em: ${this.dataCriacao.toLocaleString('pt-BR')}`;
+
+        const dataConclusao = document.createElement('small');
+        dataConclusao.classList.add('data-conclusao');
+        dataConclusao.style.display = 'none';
 
         checkbox.addEventListener('change', () => {
             this.concluida = checkbox.checked;
             card.classList.toggle('concluida', this.concluida);
+
+            if (this.concluida) {
+                this.dataConclusao = new Date();
+                dataConclusao.textContent = `Concluída em: ${this.dataConclusao.toLocaleString('pt-BR')}`;
+                dataConclusao.style.display = 'block';
+            } else {
+                this.dataConclusao = null;
+                dataConclusao.style.display = 'none';
+            }
         });
 
         card.appendChild(checkbox);
@@ -37,7 +53,8 @@ class Tarefa {
         if (this.descricao) {
             card.appendChild(descricao);
         }
-        card.appendChild(data);
+        card.appendChild(dataCriacao);
+        card.appendChild(dataConclusao);
 
         return card;
     }
